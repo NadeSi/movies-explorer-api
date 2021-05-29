@@ -20,9 +20,7 @@ module.exports.movieJoiValidator = {
   trailer: Joi.string().regex(linkRegExp).required(),
   thumbnail: Joi.string().regex(linkRegExp).required(),
   owner: Joi.string().hex().length(24).required(),
-  movieId: Joi.string().hex().length(24).required(),
-  // nameRU: Joi.string().regex(ruRegExp).required(),
+  movieId: Joi.number().required(),
   nameRU: Joi.string().required(),
-  // nameEN: Joi.string().regex(enRegExp).required(),
   nameEN: Joi.string().required(),
 };

@@ -7,6 +7,7 @@ const {
 } = require('celebrate');
 
 const bodyParser = require('body-parser');
+const cors = require('./middlewares/cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT = 3000 } = process.env;
@@ -19,6 +20,7 @@ mongoose.connect(require('./utils/const').MONGODB, {
   useFindAndModify: false,
 });
 
+app.use('*', cors);
 app.use(bodyParser.json());
 app.use(requestLogger);
 
